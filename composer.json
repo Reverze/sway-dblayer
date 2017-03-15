@@ -1,0 +1,24 @@
+{
+  "name": "rev/sway-dblayer",
+  "type": "library",
+  "description": "Emulates behaviour of SwayDbLayer",
+  "keywords": [],
+  "authors": [
+    {
+      "name": "Reverze",
+      "email": "hawkmedia24@gmail.com"
+    }
+  ],
+  "license": "GPL-3.0",
+  "require": {
+  },
+  "autoload": {
+    "psr-4": {
+      "\\": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "extra":{
+    "dev-master": "dev"
+  }
+}
