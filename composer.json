@@ -14,9 +14,7 @@
     "php": ">=7.0"
   },
   "autoload": {
-    "psr-4": {
-      "\\": "src/"
-    }
+    "classmap": [ "src/" ]
   },
   "minimum-stability": "dev",
   "extra":{
