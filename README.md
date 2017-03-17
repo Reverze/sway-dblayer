@@ -96,5 +96,3 @@ $db->Run("UPDATE %pr%my_table SET column1 = ? WHERE type = ?",
 
 
 
-
-
