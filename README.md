@@ -44,18 +44,37 @@ $db = $dblayerConnector->connect();
 ```php
 <?php
 
-$db = (new DBLayerConnector())->connect();
-
 /**
 * Returns all rows with given type as associative array
  */
 $db->Run("SELECT * FROM %pr%my_table WHERE type = ?", 
     [ 'eg_type', PDO::PARAM_STR])->assoc();
 
+/**
+* Returns first fetched row as associative array
+ */
+$db->Run("SELECT * FROM %pr%my_table WHERE type = ?",
+    [ 'eg_type', PDO::PARAM_STR ])->assoc(0);
 
+/**
+* Returns value under column 'column1' at first fetched row.
+ */
+$db->Run("SELECT column1, column_2 FROM %pr%my_table WHERE type = ?",
+    [ 'eg_type', PDO::PARAM_STR ])->assoc(0, 'column1');
 
+/**
+* Executes an query and pass array with fetched rows to given anonymous function.
+* Anonymous function must returns a value.
+ */
+$db->Run("SELECT * FROM %pr%my_table WHERE type = ?",
+    [ 'eg_type', PDO::PARAM_STR ])->assoc(function($entries) {
+        //do something with fetched entries       
+        return $entries;
+    });
 ?>
 ```
+
+
 
 
 
