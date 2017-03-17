@@ -39,7 +39,7 @@ $db = $dblayerConnector->connect();
 ?>
 ```
 
-* Fetching elements
+* Fetching rows
 
 ```php
 <?php
@@ -71,6 +71,24 @@ $db->Run("SELECT * FROM %pr%my_table WHERE type = ?",
         //do something with fetched entries       
         return $entries;
     });
+?>
+```
+
+* Inserting, updating, removing rows
+
+```php
+<?php
+
+$db = (new DBLayerConnector())->connect();
+
+/**
+* Returns True if rows have been updated,
+ * returns false if no rows have been updated.
+ */
+$db->Run("UPDATE %pr%my_table SET column1 = ? WHERE type = ?",
+    [ 'value1', PDO::PARAM_STR ],
+    [ 'eg_type', PDO::PARAM_STR ])->assoc();
+
 ?>
 ```
 
